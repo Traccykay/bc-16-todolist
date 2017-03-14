@@ -1,10 +1,9 @@
-# app/__init__.py
-
 # third-party imports
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_migrate import Migrate
+from flask_script import Manager, Shell
 
 # local imports
 from config import app_config
@@ -14,9 +13,9 @@ db = SQLAlchemy()
 login_manager = LoginManager()
 
 def create_app(config_name):
-    app = Flask(__name__, instance_relative_config=True)
+    app = Flask(__name__)
     app.config.from_object(app_config[config_name])
-    app.config.from_pyfile('config.py')
+
     db.init_app(app)
 
     # temporary route
@@ -30,6 +29,6 @@ def create_app(config_name):
 
     migrate = Migrate(app, db)
 
-    from app import model
+    
 
     return app
