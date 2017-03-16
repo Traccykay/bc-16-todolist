@@ -8,30 +8,63 @@
               <header><h3>Your Lists</h3></header>
               <div class=".text-center">
                 <button class="btn btn-default" data-toggle="modal" data-target="#listModal">
+                  <form>
+                    <input type="text" label='Title' />
+                  </form>
                   <span class="glyphicon glyphicon-plus"></span> Add New
                 </button>
               </div>
               <article>
-                Display cards here
+                <ul>
+                  {% for list in lists %}
+                    <li>{{ list.name }}</li>
+                  {% endfor %}
+                </ul>
               </article>
             </div>
-            <div class="col-md-4 cards">Cards</div>
-            <div class="col-md-4 items">Items</div>
+            <div class="row">
+            <div class="col-md-4 cards">
+              <header><h3>Your Cards</h3></header>
+              <div class=".text-center">
+                <button class="btn btn-default" data-toggle="modal" data-target="#listModal">
+                  <span class="glyphicon glyphicon-plus"></span> Add New
+                </button>
+              </div>
+              <article>
+                Display items here
+              </article>
+              </div>
+              <div class="row">
+            <div class="col-md-4 items">
+              <header><h3>Your Items</h3></header>
+              <div class=".text-center">
+                <button class="btn btn-default" data-toggle="modal" data-target="#listModal">
+                  <span class="glyphicon glyphicon-plus"></span> Add New
+                </button>
+              </div>
+              <article>
+                Display items here
+              </article>
+            </div>
+
         </div>
     </div>
 </div>
 
 
 <!--Your modals-->
-<div class="modal fade" tabindex="-1" role="dialog">
+<div class="modal fade" tabindex="-1" role="dialog" id="listModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Modal title</h4>
+        <h4 class="modal-title">ADD LIST</h4>
       </div>
       <div class="modal-body">
         <p>One fine body&hellip;</p>
+        <form>
+          <input type="text" label='Title' />
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
